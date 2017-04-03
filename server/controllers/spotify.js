@@ -13,7 +13,7 @@ var spotifyApi = new SpotifyWebApi({
 
 // get token from https://developer.spotify.com/web-api/console/get-playlist/
 // token expires every hour
-spotifyApi.setAccessToken('BQCKdBAlPq6Cr-nncmHPRy0bnczaTbE-d-0OsA0gmn0rzIrgdH4aFvNdrPVkcjE6AwpGEcPoBRLAOnzFVCHT91Pf0_MUHEFwkVhlTnSsewv4mmCen6bwDOoJf7em5EKaGSGkH5lz41uhF6XzMJz5da8NMbfjus2fHxHaOsYAxj_NFB2Ki1dqRyyoIvIWeociY8LkmE3bRanaaXENjGp429G1LPqmi707Iwcc2toqBR35qiiji8fuUdpaNDCGipVG-pjqpqqc4MioOJK_V5JiW0o4Iv3rXSuR8IlfZe1kve-7PRV6sgcv3Q');
+spotifyApi.setAccessToken('BQDyCxX8_h-RoBt0Ua75tHTVXgazgZeEBqGz8LYv79g9BvH5OAa6-abhzODM1M_eRtt44iS6Qzygvjv1Dr9Vgszqe9TZawrYWCVFBexddgYR9yJ6CRLu1u20kq78_T-1uNRLoYGkL6PNobFJm_ziQpKaqlIyfpAygfon70YLVrqPWy_Lc3jnUE1hqRKn9OMchfDm_f4EFhGU38frVi1WeqT1UoX-v_WGtZJxIHxkNcLC8OA9tJZn');
 
 spotify.fetchPlaylist = (req, res, next) => {
   // initialize collection to send to front-end
