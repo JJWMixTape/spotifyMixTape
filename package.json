@@ -29,6 +29,7 @@
     "react-dom": "^15.4.2",
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
+    "react-select": "^1.0.0-rc.3",
     "spotify-web-api-node": "^2.3.6",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"

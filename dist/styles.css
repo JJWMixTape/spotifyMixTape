@@ -1,0 +1,180 @@
+/*$dark: #121212;
+$medium: #181818; 
+$light: #282828; 
+$green: #1db954;
+$white: #f1f1f1; 
+$border: #252525;*/
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+body {
+  background: #181818;
+  margin: 0;
+  padding: 0;
+  color: #f1f1f1;
+  font-family: Montserrat;
+  font-size: 13px;
+}
+
+/*VISUALIZER*/
+
+#Visualizer_container{
+  position:relative;
+  display:block;
+  background: #282828;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top:5%;
+  width:60%;
+  height: 600px;
+  --webkit-box-sizing: border-box;
+  border-radius: 10px;
+  padding-top: 10px;
+}
+
+/*PLOT*/
+
+#Plot_container{
+  position:relative;
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  width: 90%;
+  height: 70%;
+  margin-top: 20px;
+  background:#121212;
+  border-radius: 10px;
+}
+
+/*STORY PRESET*/
+
+.StoryPreset_container{
+  display:block;
+  position:relative;
+  height: fit-content;
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+
+}
+
+.StoryPreset_pane{
+  margin-left: 10px;
+  display:inline-block;
+  position:relative;
+  width: auto;
+  height: 100px;
+  background:green;
+  vertical-align:top;
+  margin: 10px;
+  border-radius: 5px;
+  background: #1db954;
+}
+
+.StoryPreset_pane:hover{
+  opacity: 0.6;
+  background:#1db954;
+  cursor:pointer;
+}
+
+/*TRACKLIST*/
+
+#TrackList_container{
+  position:relative;
+  display:block;
+  background: #282828;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  width:60%;
+  height:400px;
+  --webkit-box-sizing: border-box;
+  border-radius: 10px;
+}
+
+#Tracklist_description_container{
+  text-align:center;
+  position:relative;
+  display:block;
+  background: #121212;
+  width: 100%;
+}
+
+#TrackList_selector_container{
+  position:relative;
+  display:inline-block;
+  vertical-align: top;
+  width:20%;
+  height: 80%;
+  margin-left: auto;
+}
+
+#list{
+  list-style:none;
+}
+
+.playlist_pane{
+  text-align:left;
+  position:relative;
+  display:block;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  list-style-type: none;
+  list-style:none;
+  padding-left: 5px;
+}
+
+.playlist_pane:hover{
+  font-weight:bolder;
+  background: #1db954;
+}
+
+#TrackList_tracks_container{
+  display:inline-block;
+  position:relative;
+  height:100%;
+  width:80%;
+}
+
+#songs{
+    overflow-y: scroll;
+    height:90%;
+}
+
+#Tracklist_column_label{
+  position:relative;
+  display:inline-block;
+  width:100%;
+}
+
+#track_container{
+  position:relative;
+  display:inline-block;
+}
+
+.Tracklist_column{
+  display:inline-block;
+  width: 48%;
+  background: #282828; 
+  border-style: solid;
+  border-top-color: #252525;
+  border-bottom-color: #252525;
+  border-right-style: none;
+  border-left-style: none;
+}
+
+.Tracklist_column_static{
+  display:inline-block;
+  position:relative;
+  width: 48%;
+  background: #282828; 
+  border-style: solid;
+  border-top-color: #252525;
+  border-bottom-color: #252525;
+  border-right-style: none;
+  border-left-style: none;
+  font-weight: lighter;
+  font-size: 16px;
+}
