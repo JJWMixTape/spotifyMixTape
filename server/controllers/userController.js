@@ -34,20 +34,32 @@ userController.retrieveToken = (req, res, next) => {
 
   // The code that's returned as a query parameter to the redirect URI
   const code = req.query.code;
-  console.log(code);
+  // console.log(code);
 
   // Retrieve an access token and a refresh token
   spotifyApi.authorizationCodeGrant(code)
     .then(function(data) {
-      console.log('The token expires in ' + data.body['expires_in']);
-      console.log('The access token is ' + data.body['access_token']);
-      console.log('The refresh token is ' + data.body['refresh_token']);
+      // console.log('The token expires in ' + data.body['expires_in']);
+      // console.log('The access token is ' + data.body['access_token']);
+      // console.log('The refresh token is ' + data.body['refresh_token']);
 
     // Set the access token on the API object to use it in later calls
       spotifyApi.setAccessToken(data.body['access_token']);
       spotifyApi.setRefreshToken(data.body['refresh_token']);
       res.cookie('access_token', data.body.access_token);
       res.redirect('/dashboard');
+    }, function(err) {
+      console.log('Something went wrong!', err);
+    });
+};
+
+userController.getMe = (req, res, next) => {
+  const spotifyApi = new SpotifyWebApi({ accessToken: req.cookies.access_token });
+  spotifyApi.getMe()
+    .then(function(data) {
+      //console.log('Some information about the authenticated user', data.body);
+      res.locals.me = data.body;
+      return next();
     }, function(err) {
       console.log('Something went wrong!', err);
     });

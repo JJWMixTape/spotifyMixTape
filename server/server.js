@@ -29,38 +29,43 @@ app.use(bodyparser.json());
 //   res.sendFile(path.join(__dirname, '..', 'dist/index.html'));
 // });
 
-
+// NOT USED
+app.get('/me', userController.getMe, (req, res) => {
+  // console.log('ACCESS TOKEN:    ', req.cookies.access_token);
+  res.send(res.locals.me.id);
+});
 
 app.get('/sendMusic', spotify.fetchPlaylist, (req, res, next) => {
   console.log("*triggering get from Spotify*");
   res.status(200).json({ serverData: res.locals.allSongs });
 });
 
-app.get('/', userController.retrieveToken, (req, res) => {
 
+// USED 
+app.get('/', userController.retrieveToken, (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'oath.html'));
 });
 
-app.get('/songs/:userid/:playlistid', spotify.fetchPlaylist, spotify.fetchSongData, (req, res) => {
-  res.send(res.locals.allSongs);
+// app.get('/songs/:playlistid', userController.getMe, spotify.fetchPlaylist, spotify.fetchSongData, (req, res) => {
+//   res.send(res.locals.allSongs);
+// });
+
+app.get('/playlists', userController.getMe, spotify.getUserPlaylists, (req, res) => {
+  console.log(res.locals.playlists.length);
+  const playlistPromises = [];
+  for (let i = 0; i < res.locals.playlists.length; i += 1) {
+    playlistPromises.push(new Promise((resolve, reject) => spotify.fetchPlaylist(req, res, i, (req, res, songIdArr, allSongs, spotifyApi) => spotify.fetchSongData(req, res, songIdArr, allSongs, spotifyApi, i, resolve))));
+  }
+  Promise.all(playlistPromises).then((data) => {
+    res.send(res.locals.playlists);
+  });
 });
 
-app.get('/me', spotify.getMe, (req, res) => {
-  console.log('ACCESS TOKEN:    ', req.cookies.access_token);
-  //res.send(res.locals.me);
-});
-
-app.get('/playlists', spotify.getUserPlaylists, (req, res) => {
-  res.send(res.locals.playlists);
-});
 
 app.get('/auth', userController.requestAuthorization);
 app.get('/dashboard', (req, res, next) => {
   res.sendFile(path.join(__dirname, '..', 'dashboard.html'));
 });
 
-// , (req, res) => {
-//   res.send(200);
-// })
 
 app.listen(3000);
