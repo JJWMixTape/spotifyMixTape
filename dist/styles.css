@@ -246,6 +246,7 @@ body {
   height: 80%;
   margin-left: auto;
   background: #121212;
+  overflow-y: scroll;
 }
 #TrackList_selector_container p{
   padding-left: 5%;
