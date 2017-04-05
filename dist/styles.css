@@ -8,12 +8,90 @@ $border: #252525;*/
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 body {
-  background: #181818;
+  background: url('http://i.imgur.com/JUDQGYP.jpg');
   margin: 0;
   padding: 0;
   color: #f1f1f1;
   font-family: Montserrat;
   font-size: 13px;
+  background-color:#121212;
+}
+
+#header_toolbar{
+  position:relative;
+  display:block;
+  height:40px;
+  width:100%;
+  background:#282828;
+  --webkit-box-sizing: border-box;
+}
+
+#header_toolbar span{
+  float:right;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  vertical-align:center;
+  border-right-style: inset;
+  border-left-style: inset;
+  border-left-width: thin;
+  border-right-width:thin;
+  border-color: #545454;
+  height:70%;
+}
+
+#header_toolbar span:hover{
+  background:#545454;
+}
+
+#spotify_logo{
+  margin-top:100px;
+  position:fixed;
+  padding-left: 20px;
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  width: 17%;
+  box-shadow: 5px 5px 5px black;
+}
+
+/*LOGIN*/
+
+#Login_container{
+  text-align:center;
+  font-size: 30px;
+  font-weight: lighter;
+  color:#f1f1f1;
+}
+
+#Login_logo{
+  display:block;
+  position:relative;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:5%;
+}
+
+#Login_container span{
+  position:relative;
+  display:block;
+  margin-top:20px;
+}
+
+#Login_with_spotify{
+  display:block;
+  position:relative;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:1%;
+  border-style: solid 5px;
+  border-color:black;
+  border-radius:50px;
+  width:15%;
+}
+
+#Login_with_spotify:hover{
+  cursor:pointer;
 }
 
 /*VISUALIZER*/
@@ -26,10 +104,31 @@ body {
   margin-left: auto;
   margin-top:5%;
   width:60%;
-  height: 600px;
+  height: fit-content;
   --webkit-box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 5px;
   padding-top: 10px;
+  box-shadow: 5px 5px 5px #252525;
+  border-style: solid;
+  border-width: thin;
+  border-color:#252525;
+}
+
+#Visualizer_toolbar{
+  display:block;
+  position:relative;
+  margin-right:auto;
+  margin-left:auto;
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  padding:5px;
+  margin-bottom: 20px;
+}
+
+#Visualizer_toolbar label{
+  margin-left: 15px;
+  padding-right: 15px;
 }
 
 /*PLOT*/
@@ -40,10 +139,22 @@ body {
   margin-right:auto;
   margin-left:auto;
   width: 90%;
-  height: 70%;
+  height: 500px;
   margin-top: 20px;
   background:#121212;
   border-radius: 10px;
+}
+
+#Plot_container img{
+  position:absolute;
+  display:block;
+  width:100%;
+  height:100%;
+  margin-right:auto;
+  margin-left:auto;
+  vertical-align:center;
+  opacity: 0.7;
+  
 }
 
 /*STORY PRESET*/
@@ -56,6 +167,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   margin-top: 20px;
+  padding-bottom: 20px;
 
 }
 
@@ -67,9 +179,13 @@ body {
   height: 100px;
   background:green;
   vertical-align:top;
-  margin: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
   border-radius: 5px;
-  background: #1db954;
+  border-style: inset;
+  border-color: #121212;
+  border-width: 1px;
+  box-shadow: 3px 3px 3px black;
 }
 
 .StoryPreset_pane:hover{
@@ -83,7 +199,7 @@ body {
 #TrackList_container{
   position:relative;
   display:block;
-  background: #282828;
+  background: #181818; 
   margin-right: auto;
   margin-left: auto;
   margin-top: 50px;
@@ -91,6 +207,10 @@ body {
   height:400px;
   --webkit-box-sizing: border-box;
   border-radius: 10px;
+  box-shadow: 5px 5px 5px black;
+  border-style: solid;
+  border-width: thin;
+  border-color:#252525;
 }
 
 #Tracklist_description_container{
@@ -108,22 +228,23 @@ body {
   width:20%;
   height: 80%;
   margin-left: auto;
+  background: #121212;
 }
-
-#list{
-  list-style:none;
+#TrackList_selector_container p{
+  padding-left: 5%;
 }
 
 .playlist_pane{
   text-align:left;
   position:relative;
   display:block;
-  width: 100%;
+  width: auto;
   padding-top: 5px;
   padding-bottom: 5px;
   list-style-type: none;
   list-style:none;
   padding-left: 5px;
+  cursor: pointer;
 }
 
 .playlist_pane:hover{
@@ -134,7 +255,7 @@ body {
 #TrackList_tracks_container{
   display:inline-block;
   position:relative;
-  height:100%;
+  height:80%;
   width:80%;
 }
 
@@ -149,26 +270,38 @@ body {
   width:100%;
 }
 
-#track_container{
-  position:relative;
-  display:inline-block;
+.Track_container{
+  width:100%;
+}
+
+
+.Track_container:hover{
+  background:#181818; 
 }
 
 .Tracklist_column{
   display:inline-block;
-  width: 48%;
-  background: #282828; 
+  width: 49%;
   border-style: solid;
+  border-width: thin;
   border-top-color: #252525;
   border-bottom-color: #252525;
   border-right-style: none;
   border-left-style: none;
+  padding-left: 5px;
+  padding-top:5px;
+  padding-bottom:5px;
+  background: #282828; 
+}
+
+.Tracklist_column:hover{
+  background:#181818; 
 }
 
 .Tracklist_column_static{
   display:inline-block;
   position:relative;
-  width: 48%;
+  width: 49%;
   background: #282828; 
   border-style: solid;
   border-top-color: #252525;
@@ -177,4 +310,5 @@ body {
   border-left-style: none;
   font-weight: lighter;
   font-size: 16px;
+  padding-left: 5px;
 }

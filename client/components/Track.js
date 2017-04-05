@@ -4,7 +4,7 @@ const Track = (props) => {
   const {name, artist} = props;
 
   return (
-    <div id="Track_container">
+    <div className="Track_container">
       <div className="Tracklist_column">
         <span>{name}</span>
       </div>

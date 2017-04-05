@@ -5,6 +5,7 @@ const Plot = (props) => {
 
   return (
     <div id="Plot_container">
+      <img src="http://i.imgur.com/zlLcuiJ.png"/>
     </div>
   );
 

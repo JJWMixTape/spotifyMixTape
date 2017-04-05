@@ -3,8 +3,9 @@ import React, { PropTypes } from 'react';
 const StoryPreset = (props) => {
   const { storyImage } = props;
 
+  console.log(storyImage);
   return (
-    <img src="https://mathbits.com/MathBits/StudentResources/GraphPaper/quadone.gif" className="StoryPreset_pane"/>
+    <img src={storyImage} className="StoryPreset_pane"/>
   )
 }
 

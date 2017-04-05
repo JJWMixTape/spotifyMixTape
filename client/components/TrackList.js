@@ -19,7 +19,7 @@ const TrackList = (props) => {
     <div id="TrackList_container">
 
       <div id="Tracklist_description_container">
-        <span>{selectedPlaylistName}</span>
+        <span style={{"fontSize": "16px", "padding":"20px"}}>{selectedPlaylistName}</span>
       </div>
 
       <div id="TrackList_selector_container">
