@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 const StoryPreset = (props) => {
   const { storyImage } = props;
 
-  console.log(storyImage);
+  // console.log(storyImage);
   return (
     <img src={storyImage} className="StoryPreset_pane"/>
   )

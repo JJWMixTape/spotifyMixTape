@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 const Sidebar = (props) => {
 
   const playerUrl = (id, owner) => {
-    console.log(owner);
+    // console.log(owner);
     return ("https://embed.spotify.com/?uri=spotify:user:").concat(owner).concat(":playlist:").concat(id); 
   }
   props.selectedPlaylist.id

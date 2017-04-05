@@ -15,7 +15,7 @@ const Visualizer = (props) => {
     }
     return (
       <div id="Visualizer_container">
-        <Plot playlist = {props.playlist} metric = {props.metric} type = {props.type} />
+        <Plot playlist = {props.playlist} metric = {props.metric} type = {props.type} updatePlaylist = {props.updateNewPlaylist} />
         <div id="Visualizer_toolbar">
           <label>Show Options</label>
           <input id="Visualizer_checkbox" type="checkbox" onClick={enableStoryVisualizers}/>
@@ -34,7 +34,7 @@ const Visualizer = (props) => {
     
     return (
       <div id="Visualizer_container">
-        <Plot playlist = {props.playlist} metric = {props.metric} type = {props.type} />
+        <Plot playlist = {props.playlist} metric = {props.metric} type = {props.type} updatePlaylist = {props.updateNewPlaylist} />
         <div id="Visualizer_toolbar">
           <label>Show Options</label>
           <input id="Visualizer_checkbox" type="checkbox" onClick={enableStoryVisualizers}/>

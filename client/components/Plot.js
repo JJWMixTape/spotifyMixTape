@@ -26,7 +26,7 @@ const CustomTooltip  = React.createClass({
 });
 
 const Plot = (props) => {
-  console.log(props.playlist);
+  //console.log(props.playlist);
   if (props.playlist === undefined) {
     return (
       <div>
@@ -34,11 +34,30 @@ const Plot = (props) => {
       </div>
     )
   } else {
-    const data01 = organizePlaylist(props.playlist.tracks, props.type);
-
+    const newPlaylist = {}
+    for (let key in props.playlist) {
+      if (key === 'tracks') {
+        newPlaylist['tracks'] = [];
+        let track = {}
+        for (let i = 0; i < newPlaylist.tracks.length; i += 1) {
+          for (key in newPlaylist.tracks[i]) {
+            track[key] = newPlaylist.tracks[i][key];
+          }
+          newPlaylist.tracks.push(track);
+        }
+      }
+      newPlaylist[key] = props.playlist[key]; 
+    }
+    //console.log(newPlaylist);
+    const data01 = organizePlaylist(newPlaylist.tracks, props.type);
+    
+    newPlaylist.tracks = data01;
+    
+    props.updatePlaylist("Reordered Playlist", newPlaylist);
     data01.forEach((obj, i) => {
       obj.x = i + 1;
     });
+  
 
     return (
       <div id="Plot_container">

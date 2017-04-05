@@ -23,9 +23,10 @@ class App extends Component {
       valenceVals: [],
       storiesHidden: false,
       metric: "Valence",
-      type: 0
+      type: 1,
+      newPlaylist: [],
+      newPlaylistName: '',
     }  
-
   }
 
   componentDidMount() {
@@ -33,7 +34,7 @@ class App extends Component {
     const that = this;
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          console.log(this.status);
+          // console.log(this.status);
           const playlists = JSON.parse(xhttp.responseText);
           that.setState({ 
               playlists,
@@ -60,7 +61,7 @@ class App extends Component {
   //------Visualizer Methods----//
 
   enableStoryVisualizers(){
-    console.log('Toggling story visualizers...');
+    // console.log('Toggling story visualizers...');
     this.setState({storiesHidden: !this.state.storiesHidden});
   }
 
@@ -72,12 +73,36 @@ class App extends Component {
       selectedPlaylist: playlist,
     });
   }
+  updateNewPlaylist(name, playlist){
+    if (playlist.tracks[0].name !== this.state.selectedPlaylist.tracks[0].name) {
+      console.log("Update Playlist:", name);
+      this.setState({
+        selectedPlaylistName: name,
+        selectedPlaylist: playlist,
+      });
+    }
+  }
 
   // ----------------------------//
-
+  export(){
+    const xhttp = new XMLHttpRequest();
+    const that = this;
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log('playlist saved!');
+        }
+    }
+    xhttp.open("POST", "/export", true);
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+    xhttp.send(JSON.stringify({ 
+      playlist: that.state.selectedPlaylist, 
+      metric: that.state.metric,
+      type: that.state.type,
+    }));
+  }
 
   render(){
-    console.log(this.state.page_state);
+    // console.log(this.state.page_state);
     if(this.state.page_state === "login") { 
       return(
         <Login loginHandler={this.loginHandler.bind(this)}/>
@@ -93,9 +118,9 @@ class App extends Component {
       
       <Sidebar selectedPlaylist = {this.state.selectedPlaylist} />
       
-      <Visualizer storiesHidden={this.state.storiesHidden} storySelectorMethods={['hello']} enableStoryVisualizers={this.enableStoryVisualizers.bind(this)} StoryPreset_images={this.StoryPreset_images} playlist = {this.state.selectedPlaylist} metric = {this.state.metric} type = {this.state.type} />
+      <Visualizer storiesHidden={this.state.storiesHidden} storySelectorMethods={['hello']} enableStoryVisualizers={this.enableStoryVisualizers.bind(this)} StoryPreset_images={this.StoryPreset_images} playlist = {this.state.selectedPlaylist} metric = {this.state.metric} type = {this.state.type} updateNewPlaylist={this.updateNewPlaylist.bind(this)} />
       
-      <TrackList playlists={this.state.playlists} selectorOnChange={this.selectorOnChange.bind(this)} selectedPlaylistName={this.state.selectedPlaylistName} selectedPlaylist={this.state.selectedPlaylist}/>
+      <TrackList playlists={this.state.playlists} selectorOnChange={this.selectorOnChange.bind(this)} selectedPlaylistName={this.state.selectedPlaylistName} selectedPlaylist={this.state.selectedPlaylist} export={this.export.bind(this)}/>
 
     </div>
     );
