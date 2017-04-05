@@ -42,14 +42,16 @@ const Plot = (props) => {
 
     return (
       <div id="Plot_container">
-        <ScatterChart width={600} height={500} margin={{top: 20, right: 40, bottom: 20, left: 0}}>
-          <XAxis dataKey={'x'} name='Track' unit=''/>
-          <YAxis dataKey={props.metric.toLowerCase()} name={props.metric} unit=''/>
-          <ZAxis range={[25]}/>
-          <CartesianGrid />
-          <Tooltip content={<CustomTooltip/>} cursor={{strokeDasharray: '3 3'}}/>
-          <Scatter data={data01} fill='#82ca9d' line shape="circle"/>
-        </ScatterChart>
+        <div id="ScatterChart_container">
+          <ScatterChart width={600} height={500} margin={{top: 20, right: 40, bottom: 20, left: 0}}>
+            <XAxis dataKey={'x'} name='Track' unit=''/>
+            <YAxis dataKey={props.metric.toLowerCase()} name={props.metric} unit=''/>
+            <ZAxis range={[25]}/>
+            <CartesianGrid />
+            <Tooltip content={<CustomTooltip/>} cursor={{strokeDasharray: '3 3'}}/>
+            <Scatter data={data01} fill='#82ca9d' line shape="circle"/>
+          </ScatterChart>
+        </div>
       </div>
     );
   }

@@ -113,14 +113,14 @@ body {
   position:relative;
   display:block;
   background: url('http://i.imgur.com/IO4uSeS.jpg');
-  margin-right: auto;
-  margin-left: auto;
+  background-size: cover;
+  margin-left: 24%;
   margin-top:5%;
-  width:60%;
+  width:70%;
   height: fit-content;
   --webkit-box-sizing: border-box;
   border-radius: 5px;
-  padding-top: 10px;
+  padding-top: 20px;
   box-shadow: 5px 5px 100px #282828;
   border-style: solid;
   border-width: thin;
@@ -129,12 +129,12 @@ body {
 }
 
 #Visualizer_toolbar{
-  display:inline-block;
+  display:block;
   position:relative;
   vertical-align:top;
   margin-right:auto;
   margin-left:auto;
-  width: 90%;
+  width: 100%;
   height: auto;
   border-radius: 10px;
   padding:5px;
@@ -147,24 +147,31 @@ body {
   padding-right: 15px;
 }
 
+#speakers_and_presets{
+  position:relative;
+  display:block;
+  width:fit-content;
+  margin-right:auto;
+  margin-left:auto;
+}
+
 .speaker{
   position:relative;
   display:inline-block;
-  height:220px;
-  margin-left: 23px;
-  margin-right:23px;
+  height:260px;
   margin-bottom:20px;
-  padding: -100px;
+  padding-right: 40px;
+  padding-left: 40px;
 
 }
 
 #Visualizer_duct_instructions{
-  display:relative;
+  display:block;
   position:relative;
-  margin-left: 80px;
+  margin-right:auto;
+  margin-left:auto;
   height: 20%;
-  margin-bottom:-45px;
-  margin-top:-10px;
+  margin-bottom:-25px;
 }
 
 #Visualizer_checkbox{
@@ -172,20 +179,47 @@ body {
   display:inline-block;
 }
 
+#Visualizer_metricButtonContainer{
+  position:relative;
+  display:inline-block;
+  padding-bottom:10px;
+  vertical-align:center;
+}
+
+.metricButton{
+  position:relative;
+  display:block;
+  height:100px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+}
+
+.metricLabel{
+  position:relative;
+  display:block;
+  padding-top:15px;
+  height:25px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 /*PLOT*/
 
 #Plot_container{
   position:relative;
-  display:block;
+  display:inline-block;
   margin-right:auto;
   margin-left:auto;
-  width: 90%;
+  width: 70%;
   height: 500px;
   margin-top: 20px;
   background:#121212;
   border-radius: 10px;
   border-style:inset;
-  border-color: #181818; 
+  border-color: #181818;
 }
 
 #Plot_container img{
@@ -198,6 +232,17 @@ body {
   vertical-align:center;
   opacity: 0.7;
   
+}
+
+/*ScatterChart*/
+
+#ScatterChart_container{
+  position:relative;
+  display:block;
+  width:fit-content;
+  height:fit-content;
+  margin-left: auto;
+  margin-right:auto;
 }
 
 /*STORY PRESET*/
@@ -225,21 +270,30 @@ body {
   border-color: #121212;
   border-width:5px;
   box-shadow: 5px 5px 5px black;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .StoryPreset_pane{
   margin-left: 10px;
   display:inline-block;
   position:relative;
-  height: 200px;
-  background:green;
+  height: 200px; background:#1db954;
   vertical-align:top;
   margin-right: 5px;
   margin-left: 5px;
   border-width: 1px;
   box-shadow: 3px 3px 3px black;
   width:auto;
+}
+
+.StoryPreset_pane:hover{
+  opacity:0.7;
+}
+
+.StoryPreset_pane:active{
+  height:190px;
+  margin-right:0;
+  margin-left:15px;
 }
 
 .StoryPreset_pane:hover{
@@ -252,8 +306,7 @@ body {
   position:relative;
   display:block;
   background: #181818; 
-  margin-right: auto;
-  margin-left: auto;
+  margin-left: 25%;
   margin-top: 50px;
   width:60%;
   height:400px;
@@ -345,6 +398,7 @@ body {
   padding-top:5px;
   padding-bottom:5px;
   background: #282828; 
+  cursor: pointer
 }
 
 .Tracklist_column:hover{
@@ -365,3 +419,4 @@ body {
   font-size: 16px;
   padding-left: 5px;
 }
+
