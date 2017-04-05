@@ -1,19 +1,23 @@
 import React, { PropTypes } from 'react';
-import Select from 'react-select';
 import Track from './Track';
 
 const TrackList = (props) => {
-  var {playlists, selectedPlaylistName, selectorOnChange} = props;
+  var {playlists, selectedPlaylistName, selectorOnChange, selectedPlaylist} = props;
 
-  //load up array with songs
-  let playlist = playlists[0];
-  let songs = [];
 
-  for (let i = 0; i < playlist.length; i += 1){
-    songs.push(<Track name={playlist[i].name} artist={playlist[i].artist}/>)
+  // load up array with playlists
+  let playlistRend = [];
+  
+  for (let i = 0; i < playlists.length; i += 1) {
+    playlistRend.push(<p onClick={()=>{selectorOnChange(playlists[i].name, playlists[i])}} className="playlist_pane">{playlists[i].name}</p>)
   }
 
-  if(!selectedPlaylistName) selectedPlaylistName = "Johnny's Playlist";
+  // load up array with songs
+  let songs = [];
+
+  for (let i = 0; i < selectedPlaylist.tracks.length; i += 1){
+    songs.push(<Track name={selectedPlaylist.tracks[i].name} artist={selectedPlaylist.tracks[i].artist}/>)
+  }
 
   return (
     <div id="TrackList_container">
@@ -24,12 +28,7 @@ const TrackList = (props) => {
 
       <div id="TrackList_selector_container">
           <div id="list">
-
-            <p onClick={()=>{selectorOnChange("Johnny's Playlist")}} className="playlist_pane">Johnny's Playlist</p>
-
-            <p onClick={()=>{selectorOnChange("Jeffrey's Playlist")}} className="playlist_pane">Jeffrey's Playlist</p>
-
-            <p onClick={()=>{selectorOnChange("Will's Playlist")}} className="playlist_pane">Will's Playlist</p>
+            {playlistRend}
           </div>
       </div>
 

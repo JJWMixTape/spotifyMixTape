@@ -24,6 +24,9 @@ body {
   width:100%;
   background:#282828;
   --webkit-box-sizing: border-box;
+  box-shadow: 3px 3px 3px black;
+  border-style: inset;
+  border-color: black;
 }
 
 #header_toolbar span{
@@ -53,6 +56,9 @@ body {
   margin-left:auto;
   width: 17%;
   box-shadow: 5px 5px 5px black;
+  border-style:inset;
+  border-width: thin;
+  border-color:black;
 }
 
 /*LOGIN*/
@@ -99,7 +105,7 @@ body {
 #Visualizer_container{
   position:relative;
   display:block;
-  background: #282828;
+  background: url('http://i.imgur.com/IO4uSeS.jpg');
   margin-right: auto;
   margin-left: auto;
   margin-top:5%;
@@ -108,15 +114,17 @@ body {
   --webkit-box-sizing: border-box;
   border-radius: 5px;
   padding-top: 10px;
-  box-shadow: 5px 5px 5px #252525;
+  box-shadow: 5px 5px 100px #282828;
   border-style: solid;
   border-width: thin;
   border-color:#252525;
+  overflow-x: auto;
 }
 
 #Visualizer_toolbar{
-  display:block;
+  display:inline-block;
   position:relative;
+  vertical-align:top;
   margin-right:auto;
   margin-left:auto;
   width: 90%;
@@ -124,11 +132,37 @@ body {
   border-radius: 10px;
   padding:5px;
   margin-bottom: 20px;
+  margin-bottom:20px;
 }
 
 #Visualizer_toolbar label{
   margin-left: 15px;
   padding-right: 15px;
+}
+
+.speaker{
+  position:relative;
+  display:inline-block;
+  height:220px;
+  margin-left: 23px;
+  margin-right:23px;
+  margin-bottom:20px;
+  padding: -100px;
+
+}
+
+#Visualizer_duct_instructions{
+  display:relative;
+  position:relative;
+  margin-left: 80px;
+  height: 20%;
+  margin-bottom:-45px;
+  margin-top:-10px;
+}
+
+#Visualizer_checkbox{
+  position:relative;
+  display:inline-block;
 }
 
 /*PLOT*/
@@ -143,6 +177,8 @@ body {
   margin-top: 20px;
   background:#121212;
   border-radius: 10px;
+  border-style:inset;
+  border-color: #181818; 
 }
 
 #Plot_container img{
@@ -160,37 +196,46 @@ body {
 /*STORY PRESET*/
 
 .StoryPreset_container{
-  display:block;
+  display:inline-block;
   position:relative;
-  height: fit-content;
-  width: fit-content;
+  height: 100%;
+  width: 22vw;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 20px;
   padding-bottom: 20px;
-
+  white-space: nowrap;
+  scroll-snap-type: mandatory;
+  scroll-snap-destination: 0% 100%;
+  scroll-snap-points-x: repeat(100%);
+  -webkit-scroll-snap-type: mandatory;
+    -webkit-scroll-snap-points-x: repeat(100%);
+    /*Here, I've set the width to be 100% of the VW 
+    (the portion of the screen that the viewer sees before scrolling).
+    Thus, overflow occurs (because my divs stretch three screens or three VWs, basically)
+    and the scroll event from scrollsnap-polyfill.js is triggered.*/
+  overflow: auto;
+  border-style: inset;
+  border-color: #121212;
+  border-width:5px;
+  box-shadow: 5px 5px 5px black;
+  margin-bottom: 10px;
 }
 
 .StoryPreset_pane{
   margin-left: 10px;
   display:inline-block;
   position:relative;
-  width: auto;
-  height: 100px;
+  height: 200px;
   background:green;
   vertical-align:top;
   margin-right: 5px;
   margin-left: 5px;
-  border-radius: 5px;
-  border-style: inset;
-  border-color: #121212;
   border-width: 1px;
   box-shadow: 3px 3px 3px black;
+  width:auto;
 }
 
 .StoryPreset_pane:hover{
-  opacity: 0.6;
-  background:#1db954;
   cursor:pointer;
 }
 
@@ -229,6 +274,7 @@ body {
   height: 80%;
   margin-left: auto;
   background: #121212;
+  overflow-y: scroll;
 }
 #TrackList_selector_container p{
   padding-left: 5%;
