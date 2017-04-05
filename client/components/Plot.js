@@ -13,10 +13,11 @@ const CustomTooltip  = React.createClass({
 
     if (active) {
       const { payload } = this.props;
+      console.log(payload);
       return (
         <div className="custom-tooltip">
           <p className="label">{`${payload[1].payload.artist} : ${payload[0].payload.name}`}</p>
-          <p className="label">{`Track #${payload[0].value}, ${metric} : ${payload[1].value}`}</p>
+          <p className="label">{`Track #${payload[0].value}, ${payload[1].name} : ${payload[1].value}`}</p>
         </div>
       );
     }
@@ -34,7 +35,7 @@ const Plot = (props) => {
       </div>
     )
   } else {
-    const data01 = organizePlaylist(props.playlist.tracks, props.type);
+    const data01 = organizePlaylist(props.playlist.tracks, props.type, props.metric.toLowerCase());
 
     data01.forEach((obj, i) => {
       obj.x = i + 1;

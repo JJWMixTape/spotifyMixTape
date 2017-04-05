@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Visualizer from './Visualizer.js';
 import TrackList from './TrackList.js';
 import Login from './Login.js';
+import About from './About.js';
 import Sidebar from './Sidebar';
 
 
@@ -24,7 +25,9 @@ class App extends Component {
       storiesHidden: false,
       metric: "Valence",
       type: 0
-    }  
+    }
+
+    this.aboutHandler = this.aboutHandler.bind(this);
 
   }
 
@@ -54,7 +57,13 @@ class App extends Component {
   //------Login Methods---------//
 
   loginHandler(){
-    // this.setState({page_state: 'dashboard'});
+    this.setState({page_state: 'dashboard'});
+  }
+
+  //------About Methods---------//
+
+  aboutHandler(){
+    this.setState({page_state: 'about'});
   }
 
   //------Visualizer Methods----//
@@ -82,12 +91,18 @@ class App extends Component {
       return(
         <Login loginHandler={this.loginHandler.bind(this)}/>
       )
-    } //else page_state = "dashboard"
+    }
+    if(this.state.page_state === "about") { 
+      return(
+        <About loginHandler={this.loginHandler.bind(this)}/>
+      )
+    }
+    //else page_state = "dashboard"
     return(
     <div id="app_container">
       <div id="header_toolbar">
         <span style={{"color":"#1db954"}} ><b>Dashboard</b></span>
-        <span>About</span>
+        <span onClick={this.aboutHandler}>About</span>
         <span>Logout</span>
       </div>
       
