@@ -13,10 +13,11 @@ const CustomTooltip  = React.createClass({
 
     if (active) {
       const { payload } = this.props;
+      console.log(payload);
       return (
         <div className="custom-tooltip">
           <p className="label">{`${payload[1].payload.artist} : ${payload[0].payload.name}`}</p>
-          <p className="label">{`Track #${payload[0].value}, ${metric} : ${payload[1].value}`}</p>
+          <p className="label">{`Track #${payload[0].value}, ${payload[1].name} : ${payload[1].value}`}</p>
         </div>
       );
     }
