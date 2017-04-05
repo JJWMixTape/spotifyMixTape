@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Visualizer from './Visualizer.js';
 import TrackList from './TrackList.js';
 import Login from './Login.js';
+import Sidebar from './Sidebar';
 
 
 class App extends Component {
@@ -87,11 +88,11 @@ class App extends Component {
         <span>Logout</span>
       </div>
       
-      <img src="http://i.imgur.com/zlLcuiJ.png" id="spotify_logo"/>
+      <Sidebar selectedPlaylist = {this.state.selectedPlaylist} />
       
       <Visualizer storiesHidden={this.state.storiesHidden} storySelectorMethods={['hello']} enableStoryVisualizers={this.enableStoryVisualizers.bind(this)} StoryPreset_images={this.StoryPreset_images}/>
       
-      <TrackList playlists={this.state.playlists} selectorOnChange={this.selectorOnChange.bind(this)} selectedPlaylistName={this.state.selectedPlaylistName} selectedPlaylist={this.state.selectedPlaylist}/>);
+      <TrackList playlists={this.state.playlists} selectorOnChange={this.selectorOnChange.bind(this)} selectedPlaylistName={this.state.selectedPlaylistName} selectedPlaylist={this.state.selectedPlaylist}/>
 
     </div>
     );

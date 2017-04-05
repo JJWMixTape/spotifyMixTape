@@ -44,7 +44,7 @@ body {
   background:#545454;
 }
 
-#spotify_logo{
+#sidebar{
   margin-top:100px;
   position:fixed;
   padding-left: 20px;
@@ -52,7 +52,17 @@ body {
   margin-right:auto;
   margin-left:auto;
   width: 17%;
+}
+
+#spotify_logo{
+  margin-right:auto;
+  margin-left:auto;
   box-shadow: 5px 5px 5px black;
+  width: 100%;
+}
+
+#player{
+  margin-top: 20px;
 }
 
 /*LOGIN*/
