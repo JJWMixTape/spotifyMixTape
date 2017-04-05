@@ -21,7 +21,9 @@ class App extends Component {
       selectedPlaylist: [],
       selectedPlaylistName: '',
       valenceVals: [],
-      storiesHidden: false
+      storiesHidden: false,
+      metric: "Valence",
+      type: 0
     }  
 
   }
@@ -73,6 +75,7 @@ class App extends Component {
 
   // ----------------------------//
 
+
   render(){
     console.log(this.state.page_state);
     if(this.state.page_state === "login") { 
@@ -90,7 +93,7 @@ class App extends Component {
       
       <Sidebar selectedPlaylist = {this.state.selectedPlaylist} />
       
-      <Visualizer storiesHidden={this.state.storiesHidden} storySelectorMethods={['hello']} enableStoryVisualizers={this.enableStoryVisualizers.bind(this)} StoryPreset_images={this.StoryPreset_images}/>
+      <Visualizer storiesHidden={this.state.storiesHidden} storySelectorMethods={['hello']} enableStoryVisualizers={this.enableStoryVisualizers.bind(this)} StoryPreset_images={this.StoryPreset_images} playlist = {this.state.selectedPlaylist} metric = {this.state.metric} type = {this.state.type} />
       
       <TrackList playlists={this.state.playlists} selectorOnChange={this.selectorOnChange.bind(this)} selectedPlaylistName={this.state.selectedPlaylistName} selectedPlaylist={this.state.selectedPlaylist}/>
 
