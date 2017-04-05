@@ -67,11 +67,12 @@ app.get('/playlists', userController.getMe, spotify.getUserPlaylists, (req, res)
   });
 });
 
-
 app.get('/auth', cors(corsOptions), userController.requestAuthorization);
 app.get('/dashboard', (req, res, next) => {
   res.sendFile(path.join(__dirname, '..', 'dashboard.html'));
 });
+
+//app.get('/play', userController.playSong);
 
 
 app.listen(3000);

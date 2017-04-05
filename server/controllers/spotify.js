@@ -25,7 +25,7 @@ spotify.fetchPlaylist = (req, res, i, cb) => {
   var songIdArr = [];
   spotifyApi.getPlaylist(playlistOwner, playListId)
     .then(function (data) {
-      console.log('id:' ,playListId, 'owner:' ,playlistOwner);
+      console.log('id:' ,playListId, 'owner:' ,playlistOwner, 'name', res.locals.playlists[i].name);
       var songArr = data.body['tracks']['items'];
       songArr.forEach(function (x) {
         songObj = {};
@@ -41,7 +41,7 @@ spotify.fetchPlaylist = (req, res, i, cb) => {
       // return next();
     })
     .catch((err) => {
-      console.log('me:', res.locals.me.id, 'playlist:', playListId);
+      //console.log('me:', res.locals.me.id, 'playlist:', playListId);
       res.status(500).send('Error occurred');
       // console.log(err);
     })
@@ -59,6 +59,7 @@ spotify.fetchSongData = (req, res, songIdArr, allSongs, spotifyApi, ind, resolve
         for (var j = 0; j < tempSongArr.length; j++) {
           if (allSongs[i]['id'] === tempSongArr[j]['id']) {
             Object.assign(allSongs[i], tempSongArr[j]);
+            console.log(allSongs[i].name);
           }
         }
       }
