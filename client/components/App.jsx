@@ -19,6 +19,7 @@ class App extends Component {
       playlists: [this.getSamplePlaylist(), "Johnny's Playlist", "Will's Playlist", "Jeffrey's Playlist"],
       selectedPlaylist: [],
       selectedPlaylistName: '',
+      reorderedPlaylist: [],
       valenceVals: [],
       storiesHidden: false
     }  

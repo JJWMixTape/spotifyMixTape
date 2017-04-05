@@ -20,7 +20,7 @@ const Visualizer = (props) => {
         <div id="Visualizer_toolbar">
           <label>Show Options</label>
           <input id="Visualizer_checkbox" type="checkbox" onClick={enableStoryVisualizers}/>
-          <img id="Visualizer_duct_instructions" src="http://i.imgur.com/YdMsto0.png"/>
+          <img id="Visualizer_duct_instructions" src="http://i.imgur.com/pUVcGAJ.png"/>
         </div>
 
         <img className="speaker" src="http://i.imgur.com/YtmT6Em.png"/>
