@@ -17,10 +17,10 @@ const Visualizer = (props) => {
       <div id="Visualizer_container">
 
         <Plot img="DELETE ME"/>
-
         <div id="Visualizer_toolbar">
-          <label>Enable Story Visualizers</label>
+          <label>Show Options</label>
           <input id="Visualizer_checkbox" type="checkbox" onClick={enableStoryVisualizers}/>
+          <img id="Visualizer_duct_instructions" src="http://i.imgur.com/YdMsto0.png"/>
         </div>
 
         <img className="speaker" src="http://i.imgur.com/YtmT6Em.png"/>
@@ -39,7 +39,7 @@ const Visualizer = (props) => {
         <Plot img="DELETE ME"/>
 
         <div id="Visualizer_toolbar">
-          <label>Enable Story Visualizers</label>
+          <label>Show Options</label>
           <input id="Visualizer_checkbox" type="checkbox" onClick={enableStoryVisualizers}/>
         </div>
       </div>
