@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.StoryPreset_images = ["http://i.imgur.com/8iiBiHS.png", "http://i.imgur.com/d4FMeTC.png", "http://i.imgur.com/8iiBiHS.png", "http://i.imgur.com/8iiBiHS.png", "http://i.imgur.com/8iiBiHS.png", "http://i.imgur.com/8iiBiHS.png"];
+    this.StoryPreset_images = ["http://i.imgur.com/FZf4EHe.png", "http://i.imgur.com/D54NtdL.png", "http://i.imgur.com/mJhMPXw.png", "http://i.imgur.com/QXOfKGc.png", "http://i.imgur.com/1r27WoE.png", "http://i.imgur.com/xka4ynT.png"];
 
     //AJAX CALL TO CHECK FOR AUTHENTICATION COOKIE HERE!!
 
