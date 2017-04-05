@@ -5,7 +5,7 @@ import StoryPreset from './StoryPreset'
 const Visualizer = (props) => {
   const { storiesHidden, storySelectorMethods, enableStoryVisualizers, StoryPreset_images } = props;
 
-  console.log(StoryPreset_images);
+  //console.log(StoryPreset_images);
 
   let StoryPresetArray = [];
 
@@ -23,9 +23,11 @@ const Visualizer = (props) => {
           <input id="Visualizer_checkbox" type="checkbox" onClick={enableStoryVisualizers}/>
         </div>
 
+        <img className="speaker" src="http://i.imgur.com/YtmT6Em.png"/>
         <div className="StoryPreset_container">
           {StoryPresetArray}
         </div>
+        <img className="speaker" src="http://i.imgur.com/YtmT6Em.png"/>
       </div>
 
     )

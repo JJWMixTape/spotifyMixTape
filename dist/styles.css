@@ -52,7 +52,7 @@ body {
   margin-right:auto;
   margin-left:auto;
   width: 17%;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 5px 5px 5px #121212;
 }
 
 /*LOGIN*/
@@ -112,6 +112,7 @@ body {
   border-style: solid;
   border-width: thin;
   border-color:#252525;
+  overflow-x: auto;
 }
 
 #Visualizer_toolbar{
@@ -129,6 +130,16 @@ body {
 #Visualizer_toolbar label{
   margin-left: 15px;
   padding-right: 15px;
+}
+
+.speaker{
+  position:relative;
+  display:inline-block;
+  height:225px;
+  margin-left: 23px;
+  margin-right:23px;
+  margin-bottom:20px;
+  padding: -100px;
 }
 
 /*PLOT*/
@@ -160,15 +171,24 @@ body {
 /*STORY PRESET*/
 
 .StoryPreset_container{
-  display:block;
+  display:inline-block;
   position:relative;
-  height: fit-content;
-  width: fit-content;
+  height: 100%;
+  width: 36%;
   margin-right: auto;
   margin-left: auto;
   margin-top: 20px;
   padding-bottom: 20px;
-
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow: auto;
+  scroll-snap-destination: 0% 100%;
+  scroll-snap-points-x: repeat(100%);
+  border-style: inset;
+  border-color: #121212;
+  border-width:5px;
+  box-shadow: 5px 5px 5px black;
+  margin-bottom: 10px;
 }
 
 .StoryPreset_pane{
@@ -176,14 +196,11 @@ body {
   display:inline-block;
   position:relative;
   width: auto;
-  height: 100px;
+  height: 200px;
   background:green;
   vertical-align:top;
   margin-right: 5px;
   margin-left: 5px;
-  border-radius: 5px;
-  border-style: inset;
-  border-color: #121212;
   border-width: 1px;
   box-shadow: 3px 3px 3px black;
 }
