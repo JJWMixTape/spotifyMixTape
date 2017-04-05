@@ -35,7 +35,7 @@ const Plot = (props) => {
       </div>
     )
   } else {
-    const data01 = organizePlaylist(props.playlist.tracks, props.type);
+    const data01 = organizePlaylist(props.playlist.tracks, props.type, props.metric.toLowerCase());
 
     data01.forEach((obj, i) => {
       obj.x = i + 1;
