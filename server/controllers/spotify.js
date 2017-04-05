@@ -63,7 +63,7 @@ spotify.fetchSongData = (req, res, songIdArr, allSongs, spotifyApi, ind, resolve
         }
       }
       //res.locals.allSongs = allSongs;
-      res.locals.playlists[ind].tracks.push(allSongs);
+      res.locals.playlists[ind].tracks = (allSongs);
       // return next();
       return resolve();
     })

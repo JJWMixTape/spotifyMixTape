@@ -47,7 +47,7 @@ userController.retrieveToken = (req, res, next) => {
       spotifyApi.setAccessToken(data.body['access_token']);
       spotifyApi.setRefreshToken(data.body['refresh_token']);
       res.cookie('access_token', data.body.access_token);
-      res.redirect('/dashboard');
+      res.redirect('/');
     }, function(err) {
       console.log('Something went wrong!', err);
     });
