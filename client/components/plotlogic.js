@@ -4,18 +4,18 @@ export function organizePlaylist(arrayObj, type, metric) {
   if (type === 0) return arrayObj;
 
   if (type === 1) {
-    return arrayObj.sort((a, b) => { return a.metric - b.metric; });
+    return arrayObj.sort((a, b) => { return a[metric] - b[metric]; });
   }
 
   if (type === 2) {
-    return arrayObj.sort((a, b) => { return b.metric - a.metric; });
+    return arrayObj.sort((a, b) => { return b[metric] - a[metric]; });
   }
 
   if (type === 3 || type === 4) {
     let first = [];
     let second = [];
     arrayObj.sort((a, b) => {
-      return a.metric - b.metric;
+      return a[metric] - b[metric];
     });
     arrayObj.forEach((obj, i) => {
       if (i % 2 === 0) {
@@ -37,7 +37,7 @@ export function organizePlaylist(arrayObj, type, metric) {
     let third = [];
     let fourth = [];
     arrayObj.sort((a, b) => {
-      return a.metric - b.metric;
+      return a[metric] - b[metric];
     });
     arrayObj.forEach((obj, i) => {
       if (i % 4 === 0) {

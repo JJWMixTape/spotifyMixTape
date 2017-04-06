@@ -71,8 +71,7 @@ app.get('/auth', cors(corsOptions), userController.requestAuthorization);
 app.get('/dashboard', (req, res, next) => {
   res.sendFile(path.join(__dirname, '..', 'dashboard.html'));
 });
-
-//app.get('/play', userController.playSong);
+app.post('/export', userController.getMe, spotify.exportController);
 
 
 app.listen(3000);

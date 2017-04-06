@@ -25,8 +25,8 @@ const Sidebar = (props) => {
   // console.log(metricsAvg);
 
   const playerUrl = (id, owner) => {
-    console.log(owner);
-    return ("https://embed.spotify.com/?uri=spotify:user:").concat(owner).concat(":playlist:").concat(id);
+    // console.log(owner);
+    return ("https://embed.spotify.com/?uri=spotify:user:").concat(owner).concat(":playlist:").concat(id); 
   }
   props.selectedPlaylist.id
   return (

@@ -420,3 +420,33 @@ body {
   padding-left: 5px;
 }
 
+#exportContainer{
+  margin-right: 50%;
+  margin-left: 50%;
+}
+
+#exportButton{
+  width: 100px;
+  height: 30px;
+  margin: 5px auto;
+  border: 3px solid #1db954;
+  color: #f1f1f1;
+  border-radius: 5px;
+  background-color: #282828;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+#exportButton:hover{
+  background-color: #181818;
+  cursor: pointer;
+}
+
+#exportButton:active{
+  background-color: #282828;
+  cursor: pointer;
+}
+
+
+
