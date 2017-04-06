@@ -5,7 +5,7 @@ const StoryPreset = (props) => {
 
 
 
-  console.log(storyImage);
+  // console.log(storyImage);
   return (
     <img src={storyImage} className="StoryPreset_pane" onClick={clickCassetteFunc}/>
   )

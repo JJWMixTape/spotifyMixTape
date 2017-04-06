@@ -4,7 +4,7 @@ import StoryPreset from './StoryPreset';
 import MetricButton from './MetricButton';
 
 const Visualizer = (props) => {
-  const { storiesHidden, storySelectorMethods, enableStoryVisualizers, StoryPreset_images, playlist, metric, type, clickCassetteFuncArray } = props;
+  const { storiesHidden, storySelectorMethods, enableStoryVisualizers, StoryPreset_images, playlist, metric, type, clickCassetteFuncArray, clickMetricButton} = props;
 
   //console.log(StoryPreset_images);
 
@@ -18,14 +18,14 @@ const Visualizer = (props) => {
       <div id="Visualizer_container">
         <div id="Visualizer_metricButtonContainer">
           <img src="http://i.imgur.com/4OwEZY9.jpg" id="top_label"  className="metricLabel"/>
-          <MetricButton metric={metric} id={"Valence"}/>
+          <MetricButton metric={metric} id={"Valence"} clickMetricButton={clickMetricButton}/>
           <img src="http://i.imgur.com/8XwSW5n.jpg" className="metricLabel"/>
-          <MetricButton metric={metric} id={"Danceability"}/>
+          <MetricButton metric={metric} id={"Danceability"} clickMetricButton={clickMetricButton}/>
           <img src="http://i.imgur.com/HgFNO0F.jpg" className="metricLabel"/>
-          <MetricButton metric={metric} id={"Energy"}/>
+          <MetricButton metric={metric} id={"Energy"} clickMetricButton={clickMetricButton}/>
         </div>
 
-        <Plot playlist = {props.playlist} metric = {props.metric} type = {props.type} />
+        <Plot playlist = {props.playlist} metric = {props.metric} type = {props.type} updatePlaylist = {props.updateNewPlaylist} />
         <div id="Visualizer_toolbar">
           <label>Show Options</label>
           <input id="Visualizer_checkbox" type="checkbox" onClick={enableStoryVisualizers}/>
@@ -45,11 +45,21 @@ const Visualizer = (props) => {
     
     return (
       <div id="Visualizer_container">
-        <Plot playlist = {props.playlist} metric = {props.metric} type = {props.type} />
-        <div id="Visualizer_toolbar">
-          <label>Show Options</label>
-          <input id="Visualizer_checkbox" type="checkbox" onClick={enableStoryVisualizers}/>
+        <div id="Visualizer_metricButtonContainer">
+          <img src="http://i.imgur.com/4OwEZY9.jpg" id="top_label"  className="metricLabel"/>
+          <MetricButton metric={metric} id={"Valence"} clickMetricButton={clickMetricButton}/>
+          <img src="http://i.imgur.com/8XwSW5n.jpg" className="metricLabel"/>
+          <MetricButton metric={metric} id={"Danceability"} clickMetricButton={clickMetricButton}/>
+          <img src="http://i.imgur.com/HgFNO0F.jpg" className="metricLabel"/>
+          <MetricButton metric={metric} id={"Energy"} clickMetricButton={clickMetricButton}/>
         </div>
+
+        
+          
+        <Plot playlist = {props.playlist} metric = {props.metric} type = {props.type} updatePlaylist = {props.updateNewPlaylist} />
+          <br/>
+          <label style={{"margin-left":"30px"}}>Show Options  </label>
+          <input id="Visualizer_checkbox" type="checkbox" onClick={enableStoryVisualizers}/>
       </div>
     )
   }
@@ -61,6 +71,7 @@ Visualizer.propTypes = {
   enableStoryVisualizers: PropTypes.func,
   StoryPreset_images: PropTypes.array,
   clickCassetteFuncArray: PropTypes.array,
+  clickMetricButton: PropTypes.array,
 };
 
 export default Visualizer;

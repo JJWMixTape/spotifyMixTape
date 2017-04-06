@@ -48,13 +48,14 @@ body {
 }
 
 #sidebar{
-  margin-top:100px;
+  margin-top:50px;
   position:fixed;
-  padding-left: 20px;
+  padding-left: 40px;
   display:block;
   margin-right:auto;
   margin-left:auto;
   width: 17%;
+  overflow-y: auto;
 }
 
 #spotify_logo{
@@ -126,6 +127,7 @@ body {
   border-width: thin;
   border-color:#252525;
   overflow-x: auto;
+  padding-bottom:30px;
 }
 
 #Visualizer_toolbar{
@@ -193,6 +195,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   padding: 20px;
+  cursor:pointer;
 }
 
 .metricLabel{
@@ -204,6 +207,10 @@ body {
   margin-left: auto;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+#metrics{
+  overflow-y:scroll;
 }
 
 /*PLOT*/
@@ -419,4 +426,34 @@ body {
   font-size: 16px;
   padding-left: 5px;
 }
+
+#exportContainer{
+  margin-right: 50%;
+  margin-left: 50%;
+}
+
+#exportButton{
+  width: 100px;
+  height: 30px;
+  margin: 5px auto;
+  border: 3px solid #1db954;
+  color: #f1f1f1;
+  border-radius: 5px;
+  background-color: #282828;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+#exportButton:hover{
+  background-color: #181818;
+  cursor: pointer;
+}
+
+#exportButton:active{
+  background-color: #282828;
+  cursor: pointer;
+}
+
+
 
