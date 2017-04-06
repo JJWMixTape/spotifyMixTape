@@ -8,6 +8,9 @@ const fs = require('fs');
 const cookieparser = require('cookie-parser');
 const cors = require('cors');
 
+const PORT = process.env.PORT || 3000;
+// const Uri = 'http://localhost:3000';
+const Uri = 'https://jjwmixtape.herokuapp.com';
 
 // webpack watch
 app.use(cookieparser());
@@ -32,7 +35,7 @@ app.use(bodyparser.json());
 
 // app.use(cors());
 const corsOptions = {
-  origin: 'http://localhost:3000/auth',
+  origin: Uri + '/auth',
 };
 
 // NOT USED
@@ -74,4 +77,4 @@ app.get('/dashboard', (req, res, next) => {
 app.post('/export', userController.getMe, spotify.exportController);
 
 
-app.listen(3000);
+app.listen(PORT);
