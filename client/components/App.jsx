@@ -15,7 +15,6 @@ class App extends Component {
     //AJAX CALL TO CHECK FOR AUTHENTICATION COOKIE HERE!!
 
     this.clickCassetteFuncArray = this.clickCassetteStoryGenerator();
-    console.log(this.clickCassetteFuncArray);
 
     this.state = {
       page_state: 'login',
@@ -87,20 +86,9 @@ class App extends Component {
     return clickCassetteFuncArray;
   }
 
-  metricButtonFuncGenerator(){
-    let buildClickFuncs = (array, i)  => {
-      let clickFunc = () => {
-        console.log("Clicked:",i);
-        this.setState({metric: array[i]});
-      }
-      return clickFunc;
-    }
-
-    let clickCassetteFuncArray = [];
-    for(let i = 1; i < 7; i += 1){
-      clickCassetteFuncArray.push(buildClickFuncs(i).bind(this));
-    }
-    return clickCassetteFuncArray;
+  clickMetricButton(myMetric){
+    console.log("click logged:",myMetric);
+    this.setState({metric: myMetric});
   }
 
   // -----TrackList Methods-----//
@@ -162,7 +150,7 @@ class App extends Component {
       
       <Sidebar selectedPlaylist = {this.state.selectedPlaylist} />
       
-      <Visualizer storiesHidden={this.state.storiesHidden} storySelectorMethods={['hello']} enableStoryVisualizers={this.enableStoryVisualizers.bind(this)} StoryPreset_images={this.StoryPreset_images} playlist = {this.state.selectedPlaylist} metric = {this.state.metric} type = {this.state.type} updateNewPlaylist={this.updateNewPlaylist.bind(this)} clickCassetteFuncArray = {this.clickCassetteFuncArray}/>
+      <Visualizer storiesHidden={this.state.storiesHidden} storySelectorMethods={['hello']} enableStoryVisualizers={this.enableStoryVisualizers.bind(this)} StoryPreset_images={this.StoryPreset_images} playlist = {this.state.selectedPlaylist} metric = {this.state.metric} type = {this.state.type} updateNewPlaylist={this.updateNewPlaylist.bind(this)} clickCassetteFuncArray = {this.clickCassetteFuncArray} clickMetricButton={this.clickMetricButton.bind(this)}/>
       
       <TrackList playlists={this.state.playlists} selectorOnChange={this.selectorOnChange.bind(this)} selectedPlaylistName={this.state.selectedPlaylistName} selectedPlaylist={this.state.selectedPlaylist} export={this.export.bind(this)}/>
 
