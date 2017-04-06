@@ -96,7 +96,23 @@ spotify.getUserPlaylists = (req, res, next) => {
     });
 };
 
-
+spotify.exportController = (req, res) => {
+  const trackArr = [];
+  for (let i = 0; i < req.body.playlist.tracks.length; i += 1) {
+    trackArr.push(('spotify:track:').concat(req.body.playlist.tracks[i].id));
+  }
+  const spotifyApi = new SpotifyWebApi({ accessToken: req.cookies.access_token });
+  spotifyApi.createPlaylist(res.locals.me.id, req.body.playlist.name.concat(' MixTape ', req.body.metric), { public: false })
+    .then((data) => {
+      console.log('added playlist');
+      spotifyApi.addTracksToPlaylist(res.locals.me.id, data.body.id, trackArr)
+        .then((result) => {
+          console.log(result);
+        }, (error) => console.log('Something went wrong!', error));
+    }, (err) => console.log('Something went wrong!', err));
+  console.log(req.body);
+  res.send(req.body);
+}
 // Client ID
 // e232e159695e4d4d9325ef1261920dd2
 // Client Secret

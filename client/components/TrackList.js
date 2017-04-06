@@ -43,13 +43,14 @@ const TrackList = (props) => {
             <span>Artist</span>
           </div>
         </div>
-
         <div id="songs">
           {songs}
         </div>
 
       </div>
-
+      <div id="exportContainer">
+        <div onClick = {props.export} id="exportButton">Export</div>
+      </div>
     </div>
   );
 }
