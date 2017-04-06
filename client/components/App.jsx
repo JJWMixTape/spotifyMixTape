@@ -16,6 +16,8 @@ class App extends Component {
     this.clickCassetteFuncArray = this.clickCassetteStoryGenerator();
     console.log(this.clickCassetteFuncArray);
 
+    this.clickButtonFuncArray = this.clickButtonGenerator();
+
     this.state = {
       page_state: 'login',
       //page_states: 'dashboard', 'login', 'about'
@@ -82,6 +84,19 @@ class App extends Component {
       clickCassetteFuncArray.push(buildClickFuncs(i).bind(this));
     }
     return clickCassetteFuncArray;
+  }
+
+  clickButtonGenerator(){
+    let buildClickFuncs = (metric) => {
+      this.setState({metric});
+    }
+    let metrics = ["Valence", "Danceability", "Energy"];
+    let funcArray = [];
+
+    for(let i = 0; i < metrics.length; i += 1){
+      funcArray.push(buildClickFuncs(i));
+    }
+    return funcArray;
   }
 
   metricButtonFuncGenerator(){
