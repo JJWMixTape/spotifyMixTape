@@ -2,11 +2,19 @@ const SpotifyWebApi = require('spotify-web-api-node');
 
 const userController = {};
 
+const Uri = 'http://localhost:3000/';
+const clientIdCode = 'e232e159695e4d4d9325ef1261920dd2'; // Will's localhost:3000
+const clientSecretCode = '116b171634f94a42a2f7ca0ff74028ee';
+// const Uri = 'https://jjwmixtape.herokuapp.com/';
+// const clientIdCode = '9147d3932043400a81e2af180da803d6'; // Jeffrey's herokuapp
+// const clientSecretCode = '1fc4aae15afa4f97a39d362315552723';
+
+
 userController.requestAuthorization = (req, res, next) => {
   const scopes = ['playlist-read-private', 'playlist-read-collaborative',
     'playlist-modify-public', 'playlist-modify-private', 'user-library-read', 'user-library-modify'],
-    redirectUri = 'http://localhost:3000/',
-    clientId = 'e232e159695e4d4d9325ef1261920dd2';
+    redirectUri = Uri,
+    clientId = clientIdCode;
     // state = 'code';
 
   // Setting credentials can be done in the wrapper's constructor, or using the API object's setters.
@@ -25,9 +33,9 @@ userController.requestAuthorization = (req, res, next) => {
 userController.retrieveToken = (req, res, next) => {
   if (req.query.code === undefined) return next();
   const credentials = {
-    clientId: 'e232e159695e4d4d9325ef1261920dd2',
-    clientSecret: '116b171634f94a42a2f7ca0ff74028ee',
-    redirectUri: 'http://localhost:3000/',
+    clientId: clientIdCode,
+    clientSecret: clientSecretCode,
+    redirectUri: Uri,
   };
 
   const spotifyApi = new SpotifyWebApi(credentials);
