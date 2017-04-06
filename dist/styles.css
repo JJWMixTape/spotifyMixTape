@@ -48,13 +48,14 @@ body {
 }
 
 #sidebar{
-  margin-top:100px;
+  margin-top:50px;
   position:fixed;
-  padding-left: 20px;
+  padding-left: 40px;
   display:block;
   margin-right:auto;
   margin-left:auto;
   width: 17%;
+  overflow-y: auto;
 }
 
 #spotify_logo{
@@ -126,6 +127,7 @@ body {
   border-width: thin;
   border-color:#252525;
   overflow-x: auto;
+  padding-bottom:30px;
 }
 
 #Visualizer_toolbar{
@@ -193,6 +195,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   padding: 20px;
+  cursor:pointer;
 }
 
 .metricLabel{
@@ -204,6 +207,10 @@ body {
   margin-left: auto;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+#metrics{
+  overflow-y:scroll;
 }
 
 /*PLOT*/
