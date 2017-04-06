@@ -9,8 +9,8 @@ const cookieparser = require('cookie-parser');
 const cors = require('cors');
 
 const PORT = process.env.PORT || 3000;
-// const Uri = 'http://localhost:3000';
-const Uri = 'https://jjwmixtape.herokuapp.com';
+const Uri = 'http://localhost:3000';
+// const Uri = 'https://jjwmixtape.herokuapp.com';
 
 // webpack watch
 app.use(cookieparser());

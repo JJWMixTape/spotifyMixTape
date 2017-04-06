@@ -2,12 +2,12 @@ const SpotifyWebApi = require('spotify-web-api-node');
 
 const userController = {};
 
-// const Uri = 'http://localhost:3000/';
-// const clientIdCode = 'e232e159695e4d4d9325ef1261920dd2'; // Will's localhost:3000
-// const clientSecretCode = '116b171634f94a42a2f7ca0ff74028ee';
-const Uri = 'https://jjwmixtape.herokuapp.com/';
-const clientIdCode = '9147d3932043400a81e2af180da803d6'; // Jeffrey's herokuapp
-const clientSecretCode = '1fc4aae15afa4f97a39d362315552723';
+const Uri = 'http://localhost:3000/';
+const clientIdCode = 'e232e159695e4d4d9325ef1261920dd2'; // Will's localhost:3000
+const clientSecretCode = '116b171634f94a42a2f7ca0ff74028ee';
+// const Uri = 'https://jjwmixtape.herokuapp.com/';
+// const clientIdCode = '9147d3932043400a81e2af180da803d6'; // Jeffrey's herokuapp
+// const clientSecretCode = '1fc4aae15afa4f97a39d362315552723';
 
 
 userController.requestAuthorization = (req, res, next) => {
