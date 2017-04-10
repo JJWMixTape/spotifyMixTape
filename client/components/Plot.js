@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip } from 'recharts';
+import { ResponsiveContainer, ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip } from 'recharts';
 // import playlist from './plotlogic.js';
 import { organizePlaylist } from './plotlogic.js';
 
-const CustomTooltip  = React.createClass({
+const CustomTooltip = React.createClass({
   propTypes: {
     payload: PropTypes.array,
   },
@@ -62,37 +62,37 @@ const Plot = (props) => {
     console.log(props.type);
     console.log(props.metric);
     const data01 = organizePlaylist(newPlaylist.tracks, props.type, props.metric.toLowerCase());
-    
+
     let newList = [];
     for (let i = 0; i < data01.length; i += 1) {
       newList.push(data01[i].valence);
     }
-    console.log(newList);  
+    console.log(newList);
 
 
 
     newPlaylist.tracks = data01;
     //console.log('after data01:', newPlaylist.tracks);
-    
+
     props.updatePlaylist("Reordered Playlist", newPlaylist);
 
     data01.forEach((obj, i) => {
       obj.x = i + 1;
     });
-  
+
 
     return (
       <div id="Plot_container">
-        <div id="ScatterChart_container">
-          <ScatterChart width={600} height={500} margin={{top: 20, right: 40, bottom: 20, left: 0}}>
-            <XAxis dataKey={'x'} name='Track' unit=''/>
-            <YAxis dataKey={props.metric.toLowerCase()} name={props.metric} unit=''/>
-            <ZAxis range={[25]}/>
+        <ResponsiveContainer width='100%' height='100%'>
+          <ScatterChart margin={{ top: 20, right: 40, bottom: 20, left: 0 }}>
+            <XAxis dataKey={'x'} name='Track' unit='' />
+            <YAxis dataKey={props.metric.toLowerCase()} name={props.metric} unit='' />
+            <ZAxis range={[25]} />
             <CartesianGrid />
-            <Tooltip content={<CustomTooltip/>} cursor={{strokeDasharray: '3 3'}}/>
-            <Scatter data={data01} fill='#82ca9d' line shape="circle"/>
+            <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: '3 3' }} />
+            <Scatter data={data01} fill='#82ca9d' line shape="circle" />
           </ScatterChart>
-        </div>
+        </ResponsiveContainer>
       </div>
     );
   }
